@@ -19,13 +19,17 @@ Our recommendation is to prioritize acquisition sourcing in the Midwest and Sout
 
 ```
 ├── README.md                              <- This file
-├── wind_turbine_eda.ipynb                 <- Full analysis notebook (cleaning, EDA, findings)
-├── wind-turbines.csv                      <- Main dataset (USWTDB)
-├── Wind Turbine Data Dictionary.pdf        <- Official data dictionary for the main dataset
-└── extra/                                  <- Supplementary state-level datasets
-    ├── average_electricity_bills.csv
-    ├── average_electricity_rates.csv
-    └── windiest-states-in-the-us_-2025.csv
+├── Code/
+│   └── wind_turbine_eda.ipynb             <- Full analysis notebook (cleaning, EDA, findings)
+├── Data/
+│   ├── wind-turbines.csv                  <- Main dataset (USWTDB)
+│   ├── Wind Turbine Data Dictionary.pdf    <- Official data dictionary for the main dataset
+│   └── extra/                              <- Supplementary state-level datasets
+│       ├── average_electricity_bills.csv
+│       ├── average_electricity_rates.csv
+│       └── windiest-states-in-the-us_-2025.csv
+└── Presentation/
+    └── EDA_Project.pdf                    <- Presentation slides
 ```
 
 ---
@@ -69,7 +73,7 @@ Our recommendation is to prioritize acquisition sourcing in the Midwest and Sout
 - **Total Estimated Net Generation by Census Region** (bar chart): Shows the Midwest and South far ahead of the West and Northeast in total estimated output.
 - **Turbine Capacity vs. Rotor Diameter** (scatter plot): Shows a strong, consistent positive relationship — larger rotor diameters are reliably paired with higher rated capacities.
 
-*(See the full notebook in `Code/` for both charts with complete formatting and interpretation.)*
+*(See the full notebook in `Code/wind_turbine_eda.ipynb` for both charts with complete formatting and interpretation.)*
 
 ---
 
@@ -83,6 +87,7 @@ Our recommendation is to prioritize acquisition sourcing in the Midwest and Sout
 ## Areas for Further Research
 
 - Validate the estimated Net Generation proxy against real plant-level generation data (e.g., EIA-923) before using these findings for investment decisions.
+- The `net_gen_proxy` calculation applies project-level capacity (`p_cap`) at the turbine level, which likely inflates totals for larger multi-turbine projects. Recalculating with per-turbine capacity (`t_cap`) would give a more accurate estimate.
 - Investigate the niche turbine models further, since their strong performance is based on very small sample sizes (as few as 3 units).
 - Integrate the collected electricity rate and bill data to explore whether strong-performing regions also show favorable electricity pricing dynamics.
 
